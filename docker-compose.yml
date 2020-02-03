@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    container_name: easydb
+    build: .
+    command: npm run start
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
