@@ -36,8 +36,8 @@ router.get('/event/:event', async (req, res) => {
     const { event } = req.params;
 
     try {
-        const event = await Event.find({ event });
-        res.send(event);
+        const eventUser = await Event.find({ event });
+        res.send(eventUser);
     } catch(e) {
         res.status(500).send(e);
     }
