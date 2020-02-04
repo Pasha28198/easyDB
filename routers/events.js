@@ -32,11 +32,11 @@ router.get('/event/:email/:event', async (req, res) => {
     }
 });
 
-router.get('/event/:eventName', async (req, res) => {
-    const { eventName } = req.params;
+router.get('/event/:event', async (req, res) => {
+    const { event } = req.params;
 
     try {
-        const event = await Event.find({ eventName });
+        const event = await Event.find({ event });
         res.send(event);
     } catch(e) {
         res.status(500).send(e);
