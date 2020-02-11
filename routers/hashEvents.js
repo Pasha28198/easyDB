@@ -6,9 +6,10 @@ const router = new express.Router();
 
 router.post('/hash_event', async (req, res) => {
     const { event, eventName } = req.body;
+    console.log('work');
 
     try {
-        const eventUpdate = await awaitHashEvent.findOne({ eventName });
+        const eventUpdate = await HashEvent.findOne({ eventName });
 
         if (eventUpdate) {
             eventUpdate.event = event;
