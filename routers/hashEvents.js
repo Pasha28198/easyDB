@@ -18,6 +18,7 @@ router.post('/hash_event', async (req, res) => {
         }
     
         const newEvent = new HashEvent(req.body);
+        await newEvent.save();
 
         res.send(newEvent);
     } catch(e) {
