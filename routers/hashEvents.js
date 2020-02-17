@@ -33,13 +33,13 @@ router.get('/hash_event/:eventName', async (req, res) => {
     try {
         const hashEvent = await HashEvent.findOne({ eventName });
 
-        if (hashEvent) {
-            res.status(404).send(e);
+        if (!Object.keys(hashEvent).length) {
+            res.status(404).send({ error: 'not Found' });
         }
         
         res.send(hashEvent);
     } catch(e) {
-        res.status(404).send(e);
+        res.status(404).send({ error: 'not Found' });
     }
 });
 
