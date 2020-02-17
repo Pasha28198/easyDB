@@ -32,6 +32,11 @@ router.get('/hash_event/:eventName', async (req, res) => {
 
     try {
         const hashEvent = await HashEvent.findOne({ eventName });
+
+        if (hashEvent) {
+            res.status(404).send(e);
+        }
+        
         res.send(hashEvent);
     } catch(e) {
         res.status(404).send(e);
